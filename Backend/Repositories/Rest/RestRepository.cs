@@ -27,10 +27,11 @@ namespace Backend.Repositories.Rest
             return entity;
         }
 
-        public async Task AddAsync(Model entityModel)
+        public async Task<Model> AddAsync(Model entityModel)
         {
-            _dbSet.Add(entityModel);
+            Model model = _dbSet.Add(entityModel).Entity;
             await _context.SaveChangesAsync();
+            return model;
         }
 
         public async Task<bool> UpdateAsync(int id, Model entity)

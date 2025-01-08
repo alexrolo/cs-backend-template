@@ -7,7 +7,7 @@ namespace Backend.Services.Rest
     {
         Task<IEnumerable<Model>> GetAllAsync();
         Task<Model?> GetByIdAsync(int id);
-        Task AddAsync(Model entityModel);
+        Task<Model> AddAsync(Model entityModel);
         Task<bool> UpdateAsync(int id, Model entityDto);
         Task<bool> DeleteAsync(int id);
     }

@@ -1,5 +1,6 @@
 using Backend.Services.Rest;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Models.Entities.DTOs;
 using Models.Entities.Mappers;
 using Models.Entities.Models;
@@ -43,8 +44,8 @@ namespace Backend.Controllers
                 return BadRequest(ModelState);
 
             TModel model = _mapper.ToModel(dto);
-            await _service.AddAsync(model);
-            return Created("", dto);
+            TModel entity = await _service.AddAsync(model);
+            return Created("", _mapper.ToDto(entity));
         }
 
         [HttpPut("{id}")]

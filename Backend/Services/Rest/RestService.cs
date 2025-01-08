@@ -9,7 +9,7 @@ namespace Backend.Services.Rest
     {
         private readonly IRestRepository<Model> _repository = repository;
 
-        public Task AddAsync(Model entityModel)
+        public Task<Model> AddAsync(Model entityModel)
         {
             return _repository.AddAsync(entityModel);
         }
