@@ -7,12 +7,12 @@ namespace Models.Entities.Mappers
     {
         public ExampleModel ToModel(ExampleDto dto)
         {
-            return new ExampleModel { Name = dto.Name };
+            return new ExampleModel { Id = dto.Id, Name = dto.Name };
         }
 
         public ExampleDto ToDto(ExampleModel model)
         {
-            return new ExampleDto { Name = model.Name };
+            return new ExampleDto { Id = model.Id, Name = model.Name };
         }
     }
 }
